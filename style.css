@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
 .overlay h1 {
-    font-family: 'Metal Mania', cursive;
-    font-size: 65px;
-    letter-spacing: 4px;
+
+    font-family: 'Nosifer', cursive;
+    font-size: 70px;
+    letter-spacing: 5px;
     color: #f00505da;
-    text-shadow: 0 0 10px #f00505da, 0 0 20px #f00505da;
+    text-shadow: 0 0 10px #f00505da, 0 0 30px #f00505da;
 }
+
 body {
     margin: 0;
     background-color: #000;
