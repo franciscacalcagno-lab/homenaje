@@ -1,170 +1,741 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Babasónicos</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Babasónicos | Fan Page</title>
+
+<!-- FUENTES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;700&family=Rubik+Glitch&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ================= VARIABLES ================= */
+
+:root{
+
+    --rojo:#f00505da;
+    --rojo-hover:#ff3c3c;
+
+    --negro:#050505;
+    --gris:#bdbdbd;
+
+    --transicion:.4s ease;
+
+}
+
+/* ================= GENERAL ================= */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:var(--negro);
+
+    color:white;
+
+    font-family:'Inter', sans-serif;
+
+    overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 60px;
+
+    background:rgba(0,0,0,.5);
+
+    backdrop-filter:blur(10px);
+
+    z-index:1000;
+}
+
+.logo{
+
+    font-family:'Rubik Glitch', cursive;
+
+    font-size:2rem;
+
+    color:var(--rojo);
+}
+
+nav ul{
+
+    display:flex;
+
+    gap:30px;
+
+    list-style:none;
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:white;
+
+    transition:var(--transicion);
+
+    font-weight:500;
+}
+
+nav a:hover{
+
+    color:var(--rojo);
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.8)),
+    url("ini.jpeg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+.hero-content{
+
+    animation:fadeUp 1.2s ease;
+}
+
+.hero h1{
+
+    font-family:'Rubik Glitch', cursive;
+
+    font-size:8rem;
+
+    color:var(--rojo);
+
+    letter-spacing:8px;
+
+    text-shadow:0 0 25px rgba(240,5,5,.6);
+}
+
+.hero p{
+
+    margin-top:20px;
+
+    font-size:1.3rem;
+
+    color:#d4d4d4;
+
+    max-width:800px;
+
+    line-height:1.8;
+}
+
+/* ================= BOTONES ================= */
+
+.botones{
+
+    margin-top:40px;
+}
+
+.botones a{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:white;
+
+    border:2px solid var(--rojo);
+
+    padding:14px 35px;
+
+    margin:10px;
+
+    border-radius:50px;
+
+    transition:var(--transicion);
+
+    font-weight:bold;
+}
+
+.botones a:hover{
+
+    background:var(--rojo);
+
+    transform:translateY(-5px);
+}
+
+/* ================= CONTENEDOR ================= */
+
+.container{
+
+    width:85%;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+/* ================= SECCIONES ================= */
+
+section{
+
+    padding:100px 0;
+}
+
+section h2{
+
+    font-family:'Anton', sans-serif;
+
+    font-size:4rem;
+
+    color:var(--rojo);
+
+    margin-bottom:30px;
+
+    letter-spacing:3px;
+}
+
+section p{
+
+    max-width:900px;
+
+    line-height:1.9;
+
+    color:#d1d1d1;
+
+    font-size:1.1rem;
+}
+
+/* ================= TARJETAS ================= */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+
+    margin-top:50px;
+}
+
+.card{
+
+    background:#111;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    transition:var(--transicion);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border:1px solid var(--rojo);
+}
+
+.card h3{
+
+    color:var(--rojo);
+
+    margin-bottom:15px;
+
+    font-size:1.5rem;
+}
+
+.card p{
+
+    font-size:1rem;
+}
+
+/* ================= LISTAS ================= */
+
+ul{
+
+    list-style:none;
+
+    margin-top:20px;
+}
+
+li{
+
+    background:#111;
+
+    margin:10px 0;
+
+    padding:15px;
+
+    border-left:4px solid var(--rojo);
+
+    border-radius:10px;
+
+    transition:var(--transicion);
+}
+
+li:hover{
+
+    transform:translateX(10px);
+}
+
+/* ================= ALBUMES ================= */
+
+.album-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+    margin-top:50px;
+}
+
+.album{
+
+    text-align:center;
+
+    transition:var(--transicion);
+}
+
+.album img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.5);
+
+    transition:var(--transicion);
+}
+
+.album:hover{
+
+    transform:scale(1.05);
+}
+
+.album:hover img{
+
+    filter:brightness(.7);
+}
+
+.album p{
+
+    margin-top:15px;
+
+    font-weight:bold;
+}
+
+/* ================= GALERIA ================= */
+
+.galeria{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+
+    margin-top:50px;
+}
+
+.galeria img{
+
+    width:100%;
+
+    height:400px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    transition:var(--transicion);
+}
+
+.galeria img:hover{
+
+    transform:scale(1.03);
+
+    filter:brightness(.7);
+}
+
+/* ================= FRASE ================= */
+
+.frase{
+
+    background:linear-gradient(135deg,#111,#1a1a1a);
+
+    padding:80px 40px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    margin-top:50px;
+}
+
+.frase h3{
+
+    font-family:'Anton', sans-serif;
+
+    font-size:3rem;
+
+    color:var(--rojo);
+
+    margin-bottom:20px;
+}
+
+.frase p{
+
+    font-size:1.3rem;
+
+    margin:auto;
+
+    max-width:800px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    text-align:center;
+
+    padding:40px;
+
+    margin-top:60px;
+
+    color:#777;
+
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+/* ================= ANIMACIONES ================= */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(50px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    nav{
+
+        padding:20px;
+    }
+
+    nav ul{
+
+        display:none;
+    }
+
+    .hero h1{
+
+        font-size:4rem;
+    }
+
+    section h2{
+
+        font-size:2.5rem;
+    }
+
+    .frase h3{
+
+        font-size:2rem;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-<!-- 🔥 PORTADA / HERO -->
-<div class="hero">
-    <div class="overlay">
-        <h1>BABASONICOS</h1>
-        <p>Más de 30 años reinventando el rock argentino</p>
-        <h2>     </h2>
-        <div class="botones">
-            <a href="https://open.spotify.com/intl-es/artist/2F9pvj94b52wGKs0OqiNi2" target="_blank">🎧 Escuchar</a>
-            <a href="https://www.youtube.com/results?search_query=babasonicos" target="_blank">▶ Ver videos</a>
-        </div>
-    </div>
+<!-- ================= NAV ================= -->
+
+<nav>
+
+<div class="logo">BABASONICOS</div>
+
+<ul>
+<li><a href="#historia">Historia</a></li>
+<li><a href="#influencias">Influencias</a></li>
+<li><a href="#albumes">Álbumes</a></li>
+<li><a href="#galeria">Galería</a></li>
+</ul>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>BABASONICOS</h1>
+
+<p>
+Más de 30 años reinventando el rock argentino con estética,
+provocación y uno de los sonidos más influyentes de Latinoamérica.
+</p>
+
+<div class="botones">
+
+<a href="https://open.spotify.com/intl-es/artist/2F9pvj94b52wGKs0OqiNi2" target="_blank">
+🎧 Escuchar
+</a>
+
+<a href="https://www.youtube.com/results?search_query=babasonicos" target="_blank">
+▶ Ver Videos
+</a>
+
 </div>
 
-<!-- CONTENIDO ORIGINAL -->
-<div class="container">
+</div>
 
-<section id="inicio">
-    <h2>¿Quiénes son?</h2>
-    <p>
-        Babasónicos es una banda de rock alternativo argentina formada en 1991.
-        Se destacan por su estilo innovador, estética cuidada y letras provocadoras.
-    </p>
 </section>
 
-<section id="origen">
-    <h2>Origen del nombre</h2>
-    <p>
-        El nombre “Babasónicos” surge de la mezcla de “Sai Baba” y “Los Supersónicos”,
-        reflejando su estilo: una mezcla entre lo místico, lo moderno y lo irónico.
-    </p>
+<!-- ================= CONTENIDO ================= -->
+
+<div class="container">
+
+<section id="historia">
+
+<h2>¿QUIÉNES SON?</h2>
+
+<p>
+Babasónicos es una banda argentina formada en 1991. Son reconocidos por
+su constante reinvención musical, letras provocadoras y una estética única
+que marcó generaciones dentro del rock nacional.
+</p>
+
+<div class="info-grid">
+
+<div class="card">
+<h3>Origen del nombre</h3>
+
+<p>
+El nombre surge de la mezcla entre “Sai Baba” y “Los Supersónicos”,
+representando una combinación entre lo espiritual y lo moderno.
+</p>
+</div>
+
+<div class="card">
+<h3>Jessico</h3>
+
+<p>
+El disco “Jessico” (2001) cambió la historia de la banda y los convirtió
+en referentes del rock latinoamericano.
+</p>
+</div>
+
+<div class="card">
+<h3>Estilo</h3>
+
+<p>
+Fusionan rock alternativo, glam, psicodelia, electrónica y pop
+con una identidad completamente propia.
+</p>
+</div>
+
+</div>
+
 </section>
 
 <section id="influencias">
-    <h2>Influencias musicales</h2>
-    <ul>
-        <li>Rock psicodélico</li>
-        <li>Glam rock</li>
-        <li>Música electrónica</li>
-        <li>Funk y pop</li>
-    </ul>
-    <p>
-        También están influenciados por David Bowie y The Velvet Underground.
-    </p>
-</section>
 
-<section id="impacto">
-    <h2>El impacto de Jessico</h2>
-    <p>
-        El disco “Jessico” (2001) los hizo conocidos en toda Latinoamérica,
-        con hits como “Irresponsables”.
-    </p>
+<h2>INFLUENCIAS</h2>
+
+<ul>
+
+<li>Rock psicodélico</li>
+<li>David Bowie</li>
+<li>Glam Rock</li>
+<li>The Velvet Underground</li>
+<li>Electrónica</li>
+<li>Funk y Pop</li>
+
+</ul>
+
 </section>
 
 <section>
-    <h2>Estética e identidad</h2>
-    <p>
-        Babasónicos no es solo música: cuidan su imagen, arte y videoclips.
-    </p>
+
+<h2>DATOS IMPORTANTES</h2>
+
+<div class="info-grid">
+
+<div class="card">
+<h3>Premios</h3>
+<p>
+Ganaron premios Gardel, MTV Latinoamérica y múltiples reconocimientos internacionales.
+</p>
+</div>
+
+<div class="card">
+<h3>Giras</h3>
+<p>
+Han realizado shows en México, Chile, España y Estados Unidos.
+</p>
+</div>
+
+<div class="card">
+<h3>Controversias</h3>
+<p>
+Sus letras provocativas y videoclips generaron polémica y marcaron su identidad.
+</p>
+</div>
+
+<div class="card">
+<h3>Gabriel Manelli</h3>
+<p>
+En 2008 falleció Gabriel Manelli, bajista histórico de la banda.
+</p>
+</div>
+
+<div class="card">
+<h3>Evolución</h3>
+<p>
+Cada álbum cambia de sonido sin perder la esencia Babasónica.
+</p>
+</div>
+
+<div class="card">
+<h3>Legado</h3>
+<p>
+Son considerados una de las bandas más importantes del rock argentino moderno.
+</p>
+</div>
+
+</div>
+
 </section>
 
-<section>
-    <h2>Videoclips importantes</h2>
-    <ul>
-        <li>Putita</li>
-        <li>Irresponsables</li>
-        <li>Carismático</li>
-        <li>La pregunta</li>
-    </ul>
-</section>
+<!-- ================= ALBUMES ================= -->
 
-<section>
-    <h2>Premios</h2>
-    <p>
-        Han ganado premios Gardel, MTV Latinoamérica y reconocimiento internacional.
-    </p>
-</section>
-
-<section>
-    <h2>Giras internacionales</h2>
-    <p>
-        Han tocado en México, Chile, España y Estados Unidos.
-    </p>
-</section>
-
-<section>
-    <h2>Controversias</h2>
-    <p>
-        Sus letras provocativas generaron polémica, aumentando su fama.
-    </p>
-</section>
-
-<section>
-    <h2>Pérdidas importantes</h2>
-    <p>
-        En 2008 falleció Gabriel Manelli.
-    </p>
-</section>
-
-<section>
-    <h2>Evolución constante</h2>
-    <p>
-        Cambian su sonido en cada disco sin perder identidad.
-    </p>
-</section>
-
-<section>
-    <h2>Datos curiosos</h2>
-    <ul>
-        <li>Más de 30 años de carrera</li>
-        <li>Fans de distintas generaciones</li>
-    </ul>
-</section>
 <section id="albumes">
-    <h2>Álbumes</h2>
 
-    <div class="album-grid">
+<h2>ÁLBUMES</h2>
 
-        <div class="album">
-            <img src="album1.jpg">
-            <p>Dopádromo (1996)</p>
-        </div>
+<div class="album-grid">
 
-        <div class="album">
-            <img src="album2.jpg">
-            <p>Jessico (2001)</p>
-        </div>
+<div class="album">
+<img src="album1.jpg">
+<p>Dopádromo (1996)</p>
+</div>
 
-        <div class="album">
-            <img src="album3.jpg">
-            <p>Infame (2003)</p>
-        </div>
+<div class="album">
+<img src="album2.jpg">
+<p>Jessico (2001)</p>
+</div>
 
-        <div class="album">
-            <img src="album4.jpg">
-            <p>Anoche (2005)</p>
-        </div>
+<div class="album">
+<img src="album3.jpg">
+<p>Infame (2003)</p>
+</div>
 
-        <div class="album">
-            <img src="album5.jpg">
-            <p>Discutible (2018)</p>
-        </div>
+<div class="album">
+<img src="album4.jpg">
+<p>Anoche (2005)</p>
+</div>
 
-    </div>
+<div class="album">
+<img src="album5.jpg">
+<p>Discutible (2018)</p>
+</div>
+
+</div>
+
 </section>
+
+<!-- ================= GALERIA ================= -->
 
 <section id="galeria">
-    <h2>Galería</h2>
-    <img src="baba.jpg">
-    <img src="baba2.jpg">
+
+<h2>GALERÍA</h2>
+
+<div class="galeria">
+
+<img src="baba.jpg">
+<img src="baba2.jpg">
+
+</div>
+
 </section>
 
+<!-- ================= FRASE ================= -->
+
 <section>
-    <h2>Frase</h2>
-    <p><strong>"Babasónicos no sigue el rock… lo reinventa."</strong></p>
+
+<div class="frase">
+
+<h3>"Babasónicos no sigue el rock… lo reinventa."</h3>
+
+<p>
+Una banda que convirtió la experimentación y la estética
+en parte fundamental del rock argentino.
+</p>
+
+</div>
+
 </section>
 
 <footer>
-    <p>Fan page 💻</p>
+
+<p>Fan Page creada por fans 💻</p>
+
 </footer>
 
 </div>
